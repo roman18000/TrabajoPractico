@@ -25,12 +25,6 @@ module Polycon
             # def delete_professional(name)
             # end 
 
-            class Professionals 
-                def initialize(name)
-                    @name = name
-                end
-            end 
-
         end
     end
 end 
