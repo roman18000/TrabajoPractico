@@ -16,7 +16,11 @@ module Polycon
         ]
 
         def call(date:, professional:, name:, surname:, phone:, notes: nil)
-          warn "TODO: Implementar creación de un turno con fecha '#{date}'.\nPodés comenzar a hacerlo en #{__FILE__}:#{__LINE__}."
+          #warn "TODO: Implementar creación de un turno con fecha '#{date}'.\nPodés comenzar a hacerlo en #{__FILE__}:#{__LINE__}."
+          if Polycon::Models::Utils.validate_appointment(date, professional)
+            d = Polycon::Models::Utils.create_date(date)  #con el string mandado creo la fecha
+            Polycon::Models::Appointments.add_appointment(d,professional,name,surname,phone,notes)
+          end
         end
       end
 
