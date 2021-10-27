@@ -13,6 +13,7 @@ module Polycon
 
         def call(name:, **)
           Polycon::Models::Professionals.add_professional(name)
+          puts "Agregado correctamente"
           #warn "TODO: Implementar creación de un o una profesional con nombre '#{name}'.\nPodés comenzar a hacerlo en #{__FILE__}:#{__LINE__}."
         end
       end
@@ -29,8 +30,14 @@ module Polycon
 
         def call(name: nil)
           #warn "TODO: Implementar borrado de la o el profesional con nombre '#{name}'.\nPodés comenzar a hacerlo en #{__FILE__}:#{__LINE__}."
-          Polycon::Models::Professionals.delete_professional(name)
+          begin 
+            Polycon::Models::Professionals.delete_professional(name)
+            puts "El profesional se borro correctamente"
+          rescue => e
+            puts e.message
+          end
         end
+
       end
 
       class List < Dry::CLI::Command
@@ -42,7 +49,7 @@ module Polycon
 
         def call(*)
           #warn "TODO: Implementar listado de profesionales.\nPodés comenzar a hacerlo en #{__FILE__}:#{__LINE__}."
-          Polycon::Models::Professionals.list_professionals
+          puts Polycon::Models::Professionals.list_professionals
         end
       end
 
@@ -58,7 +65,12 @@ module Polycon
 
         def call(old_name:, new_name:, **)
           #warn "TODO: Implementar renombrado de profesionales con nombre '#{old_name}' para que pase a llamarse '#{new_name}'.\nPodés comenzar a hacerlo en #{__FILE__}:#{__LINE__}."
-          Polycon::Models::Professionals.rename_professional(old_name, new_name)
+          begin
+            Polycon::Models::Professionals.rename_professional(old_name, new_name)
+            puts "Se renombro al profesional correctamente"
+          rescue => e
+            puts e.message
+          end 
         end
       end
     end

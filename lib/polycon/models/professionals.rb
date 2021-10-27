@@ -1,42 +1,41 @@
 module Polycon
     module Models
         class Professionals
-
+            @@home = Dir.home
             def self.add_professional(name)
                 Polycon::Models::Utils.ensure_polycon_root_exists #me aseguro que exista la ruta
-                Dir.mkdir("/home/polycon/#{name}/") unless File.exist?("/home/polycon/#{name}/") #Creo el directorio del profesional si no existe
-                puts "Agregado correctamente"
+                Dir.mkdir("#{@@home}/polycon/#{name}/") unless File.exist?("#{@@home}/polycon/#{name}/") #Creo el directorio del profesional si no existe
                 new(name)
-
             end 
 
             def self.list_professionals
                 Polycon::Models::Utils.ensure_polycon_root_exists #me aseguro que exista la ruta
                 list = Array.new
-                Dir.entries('/home/polycon').map do |directory|
-                    if (directory != "." && directory != "..")
-                        list << new(directory)
-                    end
+                Dir.children("#{@@home}/polycon/").map do |directory|
+                    list << new(directory)
                 end
-                puts list
+                list
             end
 
             def self.rename_professional(old_name, new_name)
                 Polycon::Models::Utils.ensure_polycon_root_exists #me aseguro que exista la ruta
-                File.rename("/home/polycon/#{old_name}", "/home/polycon/#{new_name}")
-                puts "El profesional se renombro correctamente"
+                begin
+                    Polycon::Models::Utils.ensure_professional_root_exists(old_name)
+                    File.rename("#{@@home}/polycon/#{old_name}", "#{@@home}/polycon/#{new_name}")
+                rescue => e
+                    raise e.message
+                end
                 #si estaria guardada las instancia lo busco y le cambio el nombre
             end
 
             def self.delete_professional(name)
-                if Polycon::Models::Utils.ensure_professional_root_exists(name)
-                    if Polycon::Models::Utils.ensure_professional_has_not_appointments(name)
-                        Dir.rmdir("/home/polycon/#{name}")
-                    else
-                        puts "El profesional tiene turnos"
-                    end
-                else 
-                    puts "El profesional no existe"
+                Polycon::Models::Utils.ensure_polycon_root_exists #me aseguro que exista la ruta
+                begin
+                    Polycon::Models::Utils.ensure_professional_root_exists(name)
+                    Polycon::Models::Utils.ensure_professional_has_not_appointments(name)
+                    Dir.rmdir("#{@@home}/polycon/#{name}")
+                rescue => e
+                    raise e.message
                 end
             end
 
