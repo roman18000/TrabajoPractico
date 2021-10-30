@@ -24,11 +24,9 @@ module Polycon
             end
 
             
-            def self.show_appointment(dateString, professional)
+            def self.show_appointment(date, professional)
                 begin 
-                    Polycon::Models::Utils.validete_date_format(dateString)
                     Polycon::Models::Utils.ensure_professional_root_exists(professional)
-                    date = Polycon::Models::Utils.create_date(dateString)
                     nameFile = Polycon::Models::Utils.return_appointment(date, professional)
                     path = "#{@@home}/polycon/#{professional}/#{nameFile}"
                     list = Array.new
@@ -78,6 +76,63 @@ module Polycon
                     File.rename("#{old_file_name}", "#{new_file_name}")
                 rescue => e
                     raise e.message
+                end
+            end
+
+            def self.list_appointments_professional(professional)
+                begin
+                    Polycon::Models::Utils.ensure_professional_root_exists(professional)
+                    list = Array.new
+                    Dir.glob("*",base:"#{@@home}/polycon/#{professional}").map do |filename|
+                        date = Polycon::Models::Utils.filename_turn_into_date(filename)
+                        list << show_appointment(date,professional)
+                    end
+                    list
+                rescue => e 
+                    raise e.message
+                end
+            end
+
+            # En este caso el date string coincide con el formato del nombre de los archivos
+            def self.list_appointments_professional_and_date(professional, dateString)
+                begin
+                    Polycon::Models::Utils.ensure_professional_root_exists(professional)
+                    Polycon::Models::Utils.validete_date_format_list(dateString)
+                    list = Array.new
+                    Dir.glob("#{dateString}*",base:"#{@@home}/polycon/#{professional}").map do |filename|
+                        date = Polycon::Models::Utils.filename_turn_into_date(filename)
+                        list << show_appointment(date,professional)
+                    end
+                    list
+                rescue => e 
+                    raise e.message
+                end 
+            end 
+
+
+            def self.edit_appointments(dateString, professional, options)
+                begin
+                    Polycon::Models::Utils.validete_date_format(dateString)
+                    Polycon::Models::Utils.ensure_professional_root_exists(professional)
+                    d = Polycon::Models::Utils.create_date(dateString)
+                    name_file = "#{@@home}/polycon/#{professional}/#{d.year}-#{d.month}-#{d.day}_#{d.hour}-#{d.minute}" 
+                    Polycon::Models::Utils.ensure_appointment_exist(name_file, professional)
+                    appointment = show_appointment(d,professional)
+                    options.each do |key, value|
+                        appointment.send("#{key}=",value)
+                    end
+                    save_edit(appointment, name_file)
+                rescue => e 
+                    raise e.message
+                end 
+            end
+
+            def self.save_edit(appointment, name_file)
+                File.open("#{name_file}", "w") do |a|
+                    a.puts "#{appointment.surname}"
+                    a.puts "#{appointment.name}"
+                    a.puts "#{appointment.phone}"
+                    a.puts "#{appointment.notes}"
                 end
             end
 

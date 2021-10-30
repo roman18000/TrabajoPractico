@@ -39,7 +39,9 @@ module Polycon
         def call(date:, professional:)
           #warn "TODO: Implementar detalles de un turno con fecha '#{date}' y profesional '#{professional}'.\nPodés comenzar a hacerlo en #{__FILE__}:#{__LINE__}."
           begin
-            puts Polycon::Models::Appointments.show_appointment(date,professional)
+            Polycon::Models::Utils.validete_date_format(date)
+            d = Polycon::Models::Utils.create_date(date)
+            puts Polycon::Models::Appointments.show_appointment(d,professional)
           rescue => e
             puts e.message
           end
@@ -98,9 +100,17 @@ module Polycon
           '"Alma Estevez" --date="2021-09-16" # Lists appointments for Alma Estevez on the specified date'
         ]
 
-        def call(professional:)
+        def call(professional:, date: nil)
           #warn "TODO: Implementar listado de turnos de la o el profesional '#{professional}'.\nPodés comenzar a hacerlo en #{__FILE__}:#{__LINE__}."
-          
+          begin
+            if (date == nil)
+              puts Polycon::Models::Appointments.list_appointments_professional(professional)
+            else
+              puts Polycon::Models::Appointments.list_appointments_professional_and_date(professional,date)
+            end
+          rescue => e 
+            puts e.message
+          end
         end
       end
 
@@ -143,7 +153,13 @@ module Polycon
         ]
 
         def call(date:, professional:, **options)
-          warn "TODO: Implementar modificación de un turno de la o el profesional '#{professional}' con fecha '#{date}', para cambiarle la siguiente información: #{options}.\nPodés comenzar a hacerlo en #{__FILE__}:#{__LINE__}."
+          #warn "TODO: Implementar modificación de un turno de la o el profesional '#{professional}' con fecha '#{date}', para cambiarle la siguiente información: #{options}.\nPodés comenzar a hacerlo en #{__FILE__}:#{__LINE__}."
+          begin
+            Polycon::Models::Appointments.edit_appointments(date, professional, **options)
+            puts "Se edito correctamente"
+          rescue => e 
+            puts e.message
+          end
         end
       end
     end

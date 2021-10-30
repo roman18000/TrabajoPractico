@@ -34,7 +34,12 @@ module Polycon
                 end
             end
 
-            #terminar esto: __>> quede aca
+            def self.validete_date_format_list(date)
+                if not (date =~ /^\d{4}\-\d{2}\-\d{2}$/)
+                    raise "El formato ingresado para listar es incorrecto"
+                end
+            end 
+           
             def self.validete_date(date)
                 today = DateTime.now
                 if date < today
@@ -56,7 +61,12 @@ module Polycon
                 Dir.glob("*",base:"#{@@home}/polycon/#{professional}/")
             end
 
-            
+            def self.filename_turn_into_date(filename)
+                a = filename.split("_")  #separo la hora de la fecha
+                a[1] = a[1].gsub("-",":")  #cambio el formato de la fecha de 13-0 a 13:00
+                DateTime.parse("#{a[0]} #{a[1]}")   #retorno la fecha
+
+            end
 
 
             def self.create_date(stringDate)

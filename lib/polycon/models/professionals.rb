@@ -18,8 +18,8 @@ module Polycon
             end
 
             def self.rename_professional(old_name, new_name)
-                Polycon::Models::Utils.ensure_polycon_root_exists #me aseguro que exista la ruta
                 begin
+                    Polycon::Models::Utils.ensure_polycon_root_exists #me aseguro que exista la ruta
                     Polycon::Models::Utils.ensure_professional_root_exists(old_name)
                     File.rename("#{@@home}/polycon/#{old_name}", "#{@@home}/polycon/#{new_name}")
                 rescue => e
