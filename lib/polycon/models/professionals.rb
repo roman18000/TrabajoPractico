@@ -4,6 +4,7 @@ module Polycon
             @@home = Dir.home
             def self.add_professional(name)
                 Polycon::Models::Utils.ensure_polycon_root_exists #me aseguro que exista la ruta
+                Polycon::Models::Utils.validete_name(name)
                 Dir.mkdir("#{@@home}/polycon/#{name}/") unless File.exist?("#{@@home}/polycon/#{name}/") #Creo el directorio del profesional si no existe
                 new(name)
             end 

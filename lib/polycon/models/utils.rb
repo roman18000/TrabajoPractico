@@ -68,6 +68,12 @@ module Polycon
 
             end
 
+            def self.validete_name(name)
+                if not (name =~ /\w/)
+                    raise "El formato de nombre ingresado es invalido"
+                end
+            end 
+
 
             def self.create_date(stringDate)
                 DateTime.parse(stringDate) #retorno un date time

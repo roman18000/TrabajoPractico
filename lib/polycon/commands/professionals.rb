@@ -12,9 +12,13 @@ module Polycon
         ]
 
         def call(name:, **)
-          Polycon::Models::Professionals.add_professional(name)
-          puts "Agregado correctamente"
-          #warn "TODO: Implementar creación de un o una profesional con nombre '#{name}'.\nPodés comenzar a hacerlo en #{__FILE__}:#{__LINE__}."
+          begin
+            Polycon::Models::Professionals.add_professional(name)
+            puts "Agregado correctamente"
+            #warn "TODO: Implementar creación de un o una profesional con nombre '#{name}'.\nPodés comenzar a hacerlo en #{__FILE__}:#{__LINE__}."
+          rescue => e
+            puts e.message
+          end
         end
       end
 
