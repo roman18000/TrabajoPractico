@@ -136,6 +136,22 @@ module Polycon
                 end
             end
 
+            #este metodo lo que recibe hace un splat para tener un arrelgo y recorrerlo tanto como si es un profesional o si son muchos
+            #ya que si no es ninguno tengo que recorrer todos, por eso lo seteo abajo
+            def self.export_list_appointments_for_day_with_professional(date, *professionals)
+                begin
+                    professionals = Polycon::Models::Professionals.list_professionals() if professionals == [nil]
+                    list = Array.new
+                    professionals.each do |p|
+                        list += list_appointments_professional_and_date(p, date)  #hago esto para no tener arreglos dentro del arrelgo, directamente le agrego
+                    end
+                    Polycon::Models::Exports.export_list(date, list)
+                    list
+                rescue => e
+                    raise e.message
+                end
+            end
+
             attr_accessor :date, :professional, :name, :surname, :phone, :notes
 
             def initialize(date, professional, name, surname, phone, notes=nil)
@@ -149,6 +165,10 @@ module Polycon
 
             def to_s
                 "Fecha: #{self.date} Apellido: #{self.surname} Nombre: #{self.name} Telefono: #{self.phone} Notas: #{self.notes} "
+            end
+
+            def hour_min
+                "#{self.date.hour}:#{self.date.min}"
             end
 
 

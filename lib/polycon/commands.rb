@@ -21,6 +21,7 @@ module Polycon
       prefix.register 'show', Appointments::Show
       prefix.register 'cancel', Appointments::Cancel
       prefix.register 'cancel-all', Appointments::CancelAll
+      prefix.register 'export-list-day', Appointments::ExportListDay
     end
 
     register 'version', Version, aliases: ['v', '-v', '--version']

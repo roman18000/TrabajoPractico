@@ -162,6 +162,28 @@ module Polycon
           end
         end
       end
+
+      class ExportListDay < Dry::CLI::Command
+        desc 'List appointments in a day, optionally filtered by a professional'
+
+        argument :date, required: true, desc: 'Day'
+        option :professional, required: false, desc: 'Full name of the professional'
+
+        example [
+          '"2021-09-16" #List appointments for that day',
+          '"2021-09-16" --professional="Alma Estevez" #List appointments for that day for Alma Estevez '
+        ]
+
+        def call(date:, professional: nil)
+          begin
+            Polycon::Models::Appointments.export_list_appointments_for_day_with_professional(date, professional)
+            puts "Se exporto la lista correctamente"
+          rescue => e 
+            puts e.message
+          end
+        end
+      end
+
     end
   end
 end
