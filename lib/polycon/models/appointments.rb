@@ -140,17 +140,22 @@ module Polycon
             #ya que si no es ninguno tengo que recorrer todos, por eso lo seteo abajo
             def self.export_list_appointments_for_day_with_professional(date, *professionals)
                 begin
+                    name = "#{date}AllPros"
+                    name = "#{date}Pro:#{professionals[0]}" if professionals != [nil]   #esto es para colocar el nombre segun corresponda
                     professionals = Polycon::Models::Professionals.list_professionals() if professionals == [nil]
                     list = Array.new
                     professionals.each do |p|
                         list += list_appointments_professional_and_date(p, date)  #hago esto para no tener arreglos dentro del arrelgo, directamente le agrego
                     end
-                    Polycon::Models::Exports.export_list(date, list)
+                    list = list.sort_by(&:hour_min)
+                    Polycon::Models::Exports.export_list(date, name, list)
                     list
                 rescue => e
                     raise e.message
                 end
             end
+
+
 
             attr_accessor :date, :professional, :name, :surname, :phone, :notes
 

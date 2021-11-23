@@ -12,13 +12,13 @@ module Polycon
             end
 
             
-            def self.export_list(name, list)
+            def self.export_list(date, name, list)
                 professionals_names = list.map{|a| a.professional}
                 professionals_names = professionals_names.uniq
                 professionals_names = professionals_names * ","
                 data = [["Hora", "Paciente", "Profesional"]]
                 Prawn::Document.generate("#{@@home}/polycon_files/#{name}.pdf") do
-                    text "Turnos para el dia #{name} de/los profesional/es #{professionals_names}"
+                    text "Turnos para el dia #{date} de/los profesional/es #{professionals_names}"
                     list.each do |a|
                         data += [["#{a.hour_min}", "#{a.name} #{a.surname}", "#{a.professional}"]]
                     end
