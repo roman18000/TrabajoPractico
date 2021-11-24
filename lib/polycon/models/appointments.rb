@@ -143,17 +143,44 @@ module Polycon
                     name = "#{date}AllPros"
                     name = "#{date}Pro:#{professionals[0]}" if professionals != [nil]   #esto es para colocar el nombre segun corresponda
                     professionals = Polycon::Models::Professionals.list_professionals() if professionals == [nil]
-                    list = Array.new
-                    professionals.each do |p|
-                        list += list_appointments_professional_and_date(p, date)  #hago esto para no tener arreglos dentro del arrelgo, directamente le agrego
-                    end
-                    list = list.sort_by(&:hour_min)
+                    list = list_appointments_for_day_with_professional(date,professionals)
                     Polycon::Models::Exports.export_list(date, name, list)
                     list
                 rescue => e
                     raise e.message
                 end
             end
+
+
+            def self.list_appointments_for_day_with_professional(date, professionals)
+                list = Array.new
+                    professionals.each do |p|
+                        list += list_appointments_professional_and_date(p, date)  #hago esto para no tener arreglos dentro del arrelgo, directamente le agrego
+                    end
+                list = list.sort_by(&:hour_min)
+                list
+            end
+
+            def self.export_list_appointments_for_week_with_professional(dateString, *professionals)
+                begin
+                    name = "#{dateString}-WeeekAllPros"
+                    name = "#{dateString}-WeekPro:#{professionals[0]}" if professionals != [nil]   #esto es para colocar el nombre segun corresponda
+                    date = Polycon::Models::Utils.create_date(dateString)
+                    date = date - date.wday   #comienzo desde el domingo
+                    professionals = Polycon::Models::Professionals.list_professionals() if professionals == [nil]
+                    list = Array.new
+                    for i in 1..7 do
+                        dateFormat = "#{date.year}-#{date.month}-#{date.day}"
+                        list << list_appointments_for_day_with_professional(dateFormat, professionals)
+                        date = date + 1
+                    end
+                    dateString = "#{date.year}-#{date.month}-#{date.day}"
+                    Polycon::Models::Exports.export_list_week(dateString, name, list)
+                    
+                rescue => e 
+                    raise e.message
+                end
+            end 
 
 
 

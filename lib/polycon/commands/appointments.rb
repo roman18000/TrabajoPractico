@@ -177,12 +177,34 @@ module Polycon
         def call(date:, professional: nil)
           begin
             Polycon::Models::Appointments.export_list_appointments_for_day_with_professional(date, professional)
-            puts "Se exporto la lista correctamente"
+            puts "Se exporto la lista del dia correctamente"
           rescue => e 
             puts e.message
           end
         end
       end
+
+      class ExportListWeek < Dry::CLI::Command
+        desc 'List appointments in a week, optionally filtered by a professional'
+
+        argument :date, required: true, desc: 'Day'
+        option :professional, required: false, desc: 'Full name of the professional'
+
+        example [
+          '"2021-09-16" #List appointments for that week',
+          '"2021-09-16" --professional="Alma Estevez" #List appointments for that week for Alma Estevez '
+        ]
+
+        def call(date:, professional: nil)
+          begin
+            Polycon::Models::Appointments.export_list_appointments_for_week_with_professional(date, professional)
+            puts "Se exporto la lista de la semana correctamente"
+          rescue => e 
+            puts e.message
+          end
+        end
+      end
+      
 
     end
   end

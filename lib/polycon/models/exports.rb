@@ -28,6 +28,22 @@ module Polycon
                 end 
             end 
 
+            def self.export_list_week(date, name, list)
+                data = [["Hora", "Domingo", "Lunes", "Martes", "Miercoles", "Juves", "Viernes", "Sabado"]]
+                h = 8
+                Prawn::Document.generate("#{@@home}/polycon_files/#{name}.pdf") do
+                    text "Turnos para la semana del #{date} de/los profesinal/es"
+                    list.each do |l|
+                        hour = "#{h}:00"
+                    end 
+
+                    table data do |table|
+                        table.column_widths = [50,150]
+                    end
+                end 
+                
+            end
+
         end
     end
 end
