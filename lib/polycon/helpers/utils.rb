@@ -1,6 +1,6 @@
 require 'date'
 module Polycon
-    module Models
+    module Helpers
         module Utils
             @@home = Dir.home
             #validadores----------------->
@@ -29,16 +29,26 @@ module Polycon
 
             #devuelve true si el formato es valido
             def self.validete_date_format(date)
-                if not (date =~ /^\d{4}\-\d{2}\-\d{2}\ \d{2}\:\d{2}$/ )
+                if not (date =~ /^\d{4}\-\d{1,2}\-\d{1,2}\ \d{2}\:\d{2}$/ )
                     raise "El formato de la fecha es invalido"
                 end
             end
 
+           
             def self.validete_date_format_list(date)
-                if not (date =~ /^\d{4}\-\d{2}\-\d{2}$/)
+                if not (date =~ /^\d{4}\-\d{1,2}\-\d{1,2}$/) 
                     raise "El formato ingresado para listar es incorrecto"
                 end
             end 
+
+            def self.validate_hour(hour ,professional)
+                Dir.glob("*",base:"#{@@home}/polycon/#{professional}").map do |filename|
+                        date = filename_turn_into_date(filename)
+                        if date.hour == hour
+                            raise "La hora ingresada para el turnos se superpone con otro turno, los rangos de turnos son de una hora"
+                        end
+                end
+            end
            
             def self.validete_date(date)
                 today = DateTime.now

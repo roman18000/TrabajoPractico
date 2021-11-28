@@ -39,8 +39,8 @@ module Polycon
         def call(date:, professional:)
           #warn "TODO: Implementar detalles de un turno con fecha '#{date}' y profesional '#{professional}'.\nPodés comenzar a hacerlo en #{__FILE__}:#{__LINE__}."
           begin
-            Polycon::Models::Utils.validete_date_format(date)
-            d = Polycon::Models::Utils.create_date(date)
+            Polycon::Helpers::Utils.validete_date_format(date)
+            d = Polycon::Helpers::Utils.create_date(date)
             puts Polycon::Models::Appointments.show_appointment(d,professional)
           rescue => e
             puts e.message
