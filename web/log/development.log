@@ -51,3 +51,1216 @@ FOREIGN KEY ("professional_id")
   [1m[36mProfessional Load (1.0ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
   [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessional Load (0.5ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAppointment Create (1.1ms)[0m  [1m[32mINSERT INTO "appointments" ("date", "name", "surname", "phone", "professional_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["date", "2021-12-08 15:25:47.467347"], ["name", "Francisco"], ["surname", "Cerati"], ["phone", 22442244], ["professional_id", 1], ["created_at", "2021-12-08 15:28:37.449701"], ["updated_at", "2021-12-08 15:28:37.449701"]]
+  [1m[36mTRANSACTION (85.6ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2021-12-08 12:31:36 -0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/roman/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/roman/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 40.2ms | Allocations: 336)
+Completed 200 OK in 50ms (Views: 42.3ms | ActiveRecord: 0.0ms | Allocations: 2433)
+
+
+Started GET "/" for 127.0.0.1 at 2021-12-08 15:30:41 -0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/roman/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/roman/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.3ms | Allocations: 224)
+Completed 200 OK in 11ms (Views: 9.6ms | Allocations: 840)
+
+
+Started GET "/" for 127.0.0.1 at 2021-12-08 16:06:07 -0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/roman/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/roman/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.9ms | Allocations: 336)
+Completed 200 OK in 15ms (Views: 8.4ms | ActiveRecord: 0.0ms | Allocations: 2450)
+
+
+Started GET "/professionals" for 127.0.0.1 at 2021-12-08 16:06:13 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[36mProfessional Load (0.7ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 20.5ms | Allocations: 3226)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/roman/TrabajoPractico/web/public/packs
+[Webpacker] Hash: e2a8a876c5815bee1e21
+Version: webpack 4.46.0
+Time: 3644ms
+Built at: 08/12/2021 16:06:23
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-e421b4aa3f716bebdab1.js    125 KiB  application  [emitted] [immutable]  application
+js/application-e421b4aa3f716bebdab1.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-e421b4aa3f716bebdab1.js js/application-e421b4aa3f716bebdab1.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 492 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 9777.9ms | Allocations: 16425)
+Completed 200 OK in 9828ms (Views: 9818.7ms | ActiveRecord: 2.5ms | Allocations: 19189)
+
+
+Started GET "/professionals/1" for 127.0.0.1 at 2021-12-08 16:06:29 -0300
+Processing by ProfessionalsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProfessional Load (0.5ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/professionals_controller.rb:62:in `set_professional'
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/show.html.erb within layouts/application
+  Rendered professionals/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 246)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 3101)
+Completed 200 OK in 21ms (Views: 12.9ms | ActiveRecord: 0.5ms | Allocations: 4584)
+
+
+Started GET "/professionals" for 127.0.0.1 at 2021-12-08 16:06:31 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[36mProfessional Load (0.3ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 12.6ms | Allocations: 803)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 26.0ms | Allocations: 3651)
+Completed 200 OK in 29ms (Views: 27.2ms | ActiveRecord: 0.3ms | Allocations: 4047)
+
+
+Started GET "/professionals/new" for 127.0.0.1 at 2021-12-08 16:06:33 -0300
+Processing by ProfessionalsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/new.html.erb within layouts/application
+  Rendered professionals/_form.html.erb (Duration: 282.6ms | Allocations: 3896)
+  Rendered professionals/new.html.erb within layouts/application (Duration: 287.2ms | Allocations: 4241)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 299.8ms | Allocations: 7092)
+Completed 200 OK in 305ms (Views: 301.8ms | ActiveRecord: 0.0ms | Allocations: 7632)
+
+
+Started GET "/professionals" for 127.0.0.1 at 2021-12-08 16:06:35 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[36mProfessional Load (0.5ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 9.0ms | Allocations: 813)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.8ms | Allocations: 3663)
+Completed 200 OK in 28ms (Views: 25.4ms | ActiveRecord: 0.5ms | Allocations: 4069)
+
+
+Started GET "/professionals/1/edit" for 127.0.0.1 at 2021-12-08 16:08:51 -0300
+Processing by ProfessionalsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProfessional Load (0.5ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/professionals_controller.rb:62:in `set_professional'
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/edit.html.erb within layouts/application
+  Rendered professionals/_form.html.erb (Duration: 6.5ms | Allocations: 550)
+  Rendered professionals/edit.html.erb within layouts/application (Duration: 12.1ms | Allocations: 806)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 22.4ms | Allocations: 3654)
+Completed 200 OK in 34ms (Views: 24.3ms | ActiveRecord: 0.5ms | Allocations: 4714)
+
+
+Started PATCH "/professionals/1" for 127.0.0.1 at 2021-12-08 16:08:56 -0300
+Processing by ProfessionalsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "professional"=>{"name"=>"Juan Perez"}, "commit"=>"Update Professional", "id"=>"1"}
+  [1m[36mProfessional Load (0.1ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/professionals_controller.rb:62:in `set_professional'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/professionals_controller.rb:40:in `block in update'
+  [1m[36mProfessional Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "professionals" WHERE "professionals"."name" = ? AND "professionals"."id" != ? LIMIT ?[0m  [["name", "Juan Perez"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/professionals_controller.rb:40:in `block in update'
+  [1m[36mProfessional Update (0.3ms)[0m  [1m[33mUPDATE "professionals" SET "name" = ?, "updated_at" = ? WHERE "professionals"."id" = ?[0m  [["name", "Juan Perez"], ["updated_at", "2021-12-08 19:08:56.083504"], ["id", 1]]
+  ↳ app/controllers/professionals_controller.rb:40:in `block in update'
+  [1m[36mTRANSACTION (142.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/professionals_controller.rb:40:in `block in update'
+Redirected to http://127.0.0.1:3000/professionals/1
+Completed 302 Found in 165ms (ActiveRecord: 143.3ms | Allocations: 6642)
+
+
+Started GET "/professionals/1" for 127.0.0.1 at 2021-12-08 16:08:56 -0300
+Processing by ProfessionalsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProfessional Load (0.3ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/professionals_controller.rb:62:in `set_professional'
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/show.html.erb within layouts/application
+  Rendered professionals/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 102)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 3356)
+Completed 200 OK in 22ms (Views: 16.1ms | ActiveRecord: 0.3ms | Allocations: 4289)
+
+
+Started GET "/professionals" for 127.0.0.1 at 2021-12-08 16:08:57 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[36mProfessional Load (0.4ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 9.0ms | Allocations: 801)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 25.4ms | Allocations: 3650)
+Completed 200 OK in 29ms (Views: 27.2ms | ActiveRecord: 0.4ms | Allocations: 4044)
+
+
+Started GET "/professionals/new" for 127.0.0.1 at 2021-12-08 16:08:59 -0300
+Processing by ProfessionalsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/new.html.erb within layouts/application
+  Rendered professionals/_form.html.erb (Duration: 4.7ms | Allocations: 493)
+  Rendered professionals/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 599)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 23.7ms | Allocations: 3446)
+Completed 200 OK in 28ms (Views: 25.8ms | ActiveRecord: 0.0ms | Allocations: 3840)
+
+
+Started POST "/professionals" for 127.0.0.1 at 2021-12-08 16:09:08 -0300
+Processing by ProfessionalsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "professional"=>{"name"=>"Pedro Alvarez"}, "commit"=>"Create Professional"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/professionals_controller.rb:27:in `block in create'
+  [1m[36mProfessional Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "professionals" WHERE "professionals"."name" = ? LIMIT ?[0m  [["name", "Pedro Alvarez"], ["LIMIT", 1]]
+  ↳ app/controllers/professionals_controller.rb:27:in `block in create'
+  [1m[36mProfessional Create (2.2ms)[0m  [1m[32mINSERT INTO "professionals" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Pedro Alvarez"], ["created_at", "2021-12-08 19:09:08.954422"], ["updated_at", "2021-12-08 19:09:08.954422"]]
+  ↳ app/controllers/professionals_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (40.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/professionals_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/professionals/2
+Completed 302 Found in 94ms (ActiveRecord: 43.1ms | Allocations: 5501)
+
+
+Started GET "/professionals/2" for 127.0.0.1 at 2021-12-08 16:09:09 -0300
+Processing by ProfessionalsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProfessional Load (0.5ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/professionals_controller.rb:62:in `set_professional'
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/show.html.erb within layouts/application
+  Rendered professionals/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 100)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 2948)
+Completed 200 OK in 27ms (Views: 17.5ms | ActiveRecord: 0.5ms | Allocations: 3879)
+
+
+Started GET "/professionals" for 127.0.0.1 at 2021-12-08 16:09:10 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[36mProfessional Load (0.4ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 10.3ms | Allocations: 899)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 26.0ms | Allocations: 3747)
+Completed 200 OK in 31ms (Views: 28.1ms | ActiveRecord: 0.4ms | Allocations: 4141)
+
+
+Started GET "/" for 127.0.0.1 at 2021-12-08 16:36:37 -0300
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:3:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/" for 127.0.0.1 at 2021-12-08 16:37:07 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/professionals/index.html.erb:14
+  [1m[36mProfessional Load (0.1ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 8.2ms | Allocations: 3445)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 6430)
+Completed 200 OK in 17ms (Views: 14.1ms | ActiveRecord: 0.6ms | Allocations: 7945)
+
+
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Started GET "/professionals/1/edit" for 127.0.0.1 at 2021-12-08 19:05:35 -0300
+Processing by ProfessionalsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/professionals_controller.rb:63:in `set_professional'
+  [1m[36mProfessional Load (0.5ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/professionals_controller.rb:63:in `set_professional'
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/edit.html.erb within layouts/application
+  Rendered professionals/_form.html.erb (Duration: 3.2ms | Allocations: 648)
+  Rendered professionals/edit.html.erb within layouts/application (Duration: 4.4ms | Allocations: 783)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 29.4ms | Allocations: 3610)
+Completed 200 OK in 63ms (Views: 31.2ms | ActiveRecord: 1.7ms | Allocations: 7827)
+
+
+Started GET "/professionals" for 127.0.0.1 at 2021-12-08 19:05:37 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[36mProfessional Load (0.6ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 14.4ms | Allocations: 917)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 35.7ms | Allocations: 3765)
+Completed 200 OK in 41ms (Views: 38.2ms | ActiveRecord: 0.6ms | Allocations: 4159)
+
+
+Started DELETE "/professionals/1" for 127.0.0.1 at 2021-12-08 19:05:56 -0300
+Processing by ProfessionalsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mProfessional Load (0.2ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/professionals_controller.rb:63:in `set_professional'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/professionals_controller.rb:53:in `destroy'
+  [1m[36mProfessional Destroy (20.9ms)[0m  [1m[31mDELETE FROM "professionals" WHERE "professionals"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/professionals_controller.rb:53:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/professionals_controller.rb:53:in `destroy'
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 21.3ms | Allocations: 4804)
+
+
+  
+ActiveRecord::InvalidForeignKey (SQLite3::ConstraintException: FOREIGN KEY constraint failed):
+  
+app/controllers/professionals_controller.rb:53:in `destroy'
+Started GET "/professionals" for 127.0.0.1 at 2021-12-08 19:06:01 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[36mProfessional Load (0.3ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 898)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 3755)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.3ms | Allocations: 4147)
+
+
+Started GET "/professionals" for 127.0.0.1 at 2021-12-08 19:15:24 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/professionals/index.html.erb:14
+  [1m[36mProfessional Load (0.3ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 40.6ms | Allocations: 3510)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 46.0ms | Allocations: 6519)
+Completed 200 OK in 51ms (Views: 47.7ms | ActiveRecord: 0.9ms | Allocations: 8477)
+
+
+Started GET "/" for 127.0.0.1 at 2021-12-08 19:15:27 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[36mProfessional Load (0.2ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 908)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 3756)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.2ms | Allocations: 4148)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2021-12-08 19:17:24 -0300
+Processing by AppointmentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/views/appointments/index.html.erb:19
+  Rendered appointments/index.html.erb within layouts/application (Duration: 14.4ms | Allocations: 5181)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.6ms | Allocations: 7994)
+Completed 200 OK in 26ms (Views: 20.7ms | ActiveRecord: 1.0ms | Allocations: 9579)
+
+
+Started GET "/appointments/new" for 127.0.0.1 at 2021-12-08 19:17:37 -0300
+Processing by AppointmentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/new.html.erb within layouts/application
+  Rendered appointments/_form.html.erb (Duration: 217.6ms | Allocations: 4127)
+  Rendered appointments/new.html.erb within layouts/application (Duration: 220.6ms | Allocations: 4468)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 234.6ms | Allocations: 7316)
+Completed 200 OK in 239ms (Views: 236.6ms | ActiveRecord: 0.0ms | Allocations: 7851)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2021-12-08 19:17:49 -0300
+Processing by AppointmentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/views/appointments/index.html.erb:19
+  Rendered appointments/index.html.erb within layouts/application (Duration: 11.6ms | Allocations: 836)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 23.4ms | Allocations: 3684)
+Completed 200 OK in 33ms (Views: 30.4ms | ActiveRecord: 0.4ms | Allocations: 4079)
+
+
+Started GET "/appointments/1/edit" for 127.0.0.1 at 2021-12-08 19:19:39 -0300
+Processing by AppointmentsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAppointment Load (0.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:62:in `set_appointment'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/edit.html.erb within layouts/application
+  Rendered appointments/_form.html.erb (Duration: 8.0ms | Allocations: 3049)
+  Rendered appointments/edit.html.erb within layouts/application (Duration: 10.7ms | Allocations: 3306)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | Allocations: 6154)
+Completed 200 OK in 33ms (Views: 21.0ms | ActiveRecord: 0.5ms | Allocations: 7325)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2021-12-08 19:19:45 -0300
+Processing by AppointmentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/views/appointments/index.html.erb:19
+  Rendered appointments/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 834)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 3691)
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.2ms | Allocations: 4109)
+
+
+Started GET "/appointments/1/edit" for 127.0.0.1 at 2021-12-08 19:19:47 -0300
+Processing by AppointmentsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:62:in `set_appointment'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/edit.html.erb within layouts/application
+  Rendered appointments/_form.html.erb (Duration: 23.3ms | Allocations: 3029)
+  Rendered appointments/edit.html.erb within layouts/application (Duration: 25.7ms | Allocations: 3161)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 42.6ms | Allocations: 6008)
+Completed 200 OK in 59ms (Views: 44.8ms | ActiveRecord: 0.4ms | Allocations: 6936)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2021-12-08 19:19:55 -0300
+Processing by AppointmentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/views/appointments/index.html.erb:19
+  Rendered appointments/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 831)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 3679)
+Completed 200 OK in 13ms (Views: 12.5ms | ActiveRecord: 0.2ms | Allocations: 4073)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2021-12-08 19:25:47 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/appointments"):
+  
+Started GET "/" for 127.0.0.1 at 2021-12-08 19:25:50 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/professionals/index.html.erb:14
+  [1m[36mProfessional Load (0.2ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 9.9ms | Allocations: 3505)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | Allocations: 6535)
+Completed 200 OK in 18ms (Views: 15.3ms | ActiveRecord: 0.5ms | Allocations: 8488)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Started GET "/appointments" for 127.0.0.1 at 2021-12-08 19:27:40 -0300
+Processing by AppointmentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/appointments/index.html.erb:18
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/views/appointments/index.html.erb:18
+  Rendered appointments/index.html.erb within layouts/application (Duration: 12.5ms | Allocations: 5860)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 8869)
+Completed 200 OK in 20ms (Views: 18.2ms | ActiveRecord: 1.0ms | Allocations: 10504)
+
+
+Started GET "/" for 127.0.0.1 at 2021-12-08 19:32:07 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[36mProfessional Load (0.2ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 8.1ms | Allocations: 2912)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 5725)
+Completed 200 OK in 19ms (Views: 14.4ms | ActiveRecord: 0.8ms | Allocations: 7349)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2021-12-08 19:41:22 -0300
+Processing by AppointmentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/appointments/index.html.erb:18
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/views/appointments/index.html.erb:18
+  Rendered appointments/index.html.erb within layouts/application (Duration: 11.9ms | Allocations: 5063)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 7893)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.6ms | Allocations: 8920)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2021-12-08 19:41:41 -0300
+Processing by AppointmentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/appointments/index.html.erb:18
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/views/appointments/index.html.erb:18
+  Rendered appointments/index.html.erb within layouts/application (Duration: 12.5ms | Allocations: 5557)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 8417)
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 1.1ms | Allocations: 9445)
+
+
+Started GET "/" for 127.0.0.1 at 2021-12-08 19:41:43 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[36mProfessional Load (0.2ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 7.5ms | Allocations: 2694)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 5545)
+Completed 200 OK in 18ms (Views: 15.8ms | ActiveRecord: 0.6ms | Allocations: 6791)
+
+
+Started GET "/" for 127.0.0.1 at 2021-12-08 19:41:45 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[36mProfessional Load (0.2ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 6.0ms | Allocations: 899)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.1ms | Allocations: 3753)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.2ms | Allocations: 4144)
+
+
+Started GET "/" for 127.0.0.1 at 2021-12-08 19:42:00 -0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[36mProfessional Load (0.2ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 3425)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 172.1ms | Allocations: 7957)
+Completed 200 OK in 188ms (Views: 174.8ms | ActiveRecord: 0.6ms | Allocations: 12031)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2021-12-08 19:42:04 -0300
+Processing by AppointmentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/views/appointments/index.html.erb:18
+  Rendered appointments/index.html.erb within layouts/application (Duration: 27.4ms | Allocations: 5158)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 39.3ms | Allocations: 8011)
+Completed 200 OK in 49ms (Views: 42.6ms | ActiveRecord: 0.8ms | Allocations: 9610)
+
+
+Started GET "/" for 127.0.0.1 at 2021-12-08 19:42:09 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[36mProfessional Load (0.4ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 11.6ms | Allocations: 916)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 31.0ms | Allocations: 3777)
+Completed 200 OK in 35ms (Views: 32.5ms | ActiveRecord: 0.4ms | Allocations: 4182)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2021-12-08 19:42:57 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/appointments"):
+  
+Started GET "/" for 127.0.0.1 at 2021-12-08 19:42:59 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/professionals/index.html.erb:14
+  [1m[36mProfessional Load (0.2ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 12.2ms | Allocations: 3805)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.4ms | Allocations: 6782)
+Completed 200 OK in 21ms (Views: 18.3ms | ActiveRecord: 1.8ms | Allocations: 8287)
+
+
+Started GET "/professionals" for 127.0.0.1 at 2021-12-08 19:43:20 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[36mProfessional Load (0.1ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 907)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 3756)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.1ms | Allocations: 4155)
+
+
+Started GET "/professionals/1/appointments" for 127.0.0.1 at 2021-12-08 19:43:31 -0300
+Processing by AppointmentsController#index as HTML
+  Parameters: {"professional_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/views/appointments/index.html.erb:18
+  Rendered appointments/index.html.erb within layouts/application (Duration: 18.5ms | Allocations: 7656)
+  Rendered layout layouts/application.html.erb (Duration: 18.8ms | Allocations: 7720)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.7ms | Allocations: 8624)
+
+
+  
+ActionView::Template::Error (undefined method `appointment_path' for #<ActionView::Base:0x0000000000ab68>):
+    22:         <td><%= appointment.surname %></td>
+    23:         <td><%= appointment.phone %></td>
+    24:         <td><%= appointment.notes %></td>
+    25:         <td><%= link_to 'Show', appointment %></td>
+    26:         <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
+    27:         <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    28:       </tr>
+  
+app/views/appointments/index.html.erb:25
+app/views/appointments/index.html.erb:18
+Started GET "/professionals" for 127.0.0.1 at 2021-12-08 19:48:16 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[36mProfessional Load (0.2ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 21.5ms | Allocations: 5002)
+  Rendered layout layouts/application.html.erb (Duration: 22.0ms | Allocations: 5066)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.2ms | Allocations: 6146)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `appointments' for #<ActionView::Base:0x0000000000aed8>):
+    15:       <tr>
+    16:         <td><%= professional.name %></td>
+    17:         <td><%= link_to 'Show', professional %></td>
+    18:         <td><%= link_to 'Appointments', appointments %></td>
+    19:         <td><%= link_to 'Edit', edit_professional_path(professional) %></td>
+    20:         <td><%= link_to 'Destroy', professional, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    21:       </tr>
+  
+app/views/professionals/index.html.erb:18
+app/views/professionals/index.html.erb:14
+Started GET "/" for 127.0.0.1 at 2021-12-08 19:48:19 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[36mProfessional Load (0.1ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 15.0ms | Allocations: 4756)
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 4820)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.1ms | Allocations: 5184)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `appointments' for #<ActionView::Base:0x0000000000b2c0>):
+    15:       <tr>
+    16:         <td><%= professional.name %></td>
+    17:         <td><%= link_to 'Show', professional %></td>
+    18:         <td><%= link_to 'Appointments', appointments %></td>
+    19:         <td><%= link_to 'Edit', edit_professional_path(professional) %></td>
+    20:         <td><%= link_to 'Destroy', professional, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    21:       </tr>
+  
+app/views/professionals/index.html.erb:18
+app/views/professionals/index.html.erb:14
+Started GET "/" for 127.0.0.1 at 2021-12-08 19:48:31 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[36mProfessional Load (0.3ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 22.7ms | Allocations: 4999)
+  Rendered layout layouts/application.html.erb (Duration: 23.2ms | Allocations: 5063)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.3ms | Allocations: 6142)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `appointments' for #<ActionView::Base:0x0000000000b5e0>):
+    15:       <tr>
+    16:         <td><%= professional.name %></td>
+    17:         <td><%= link_to 'Show', professional %></td>
+    18:         # <td><%= link_to 'Appointments', appointments %></td>
+    19:         <td><%= link_to 'Edit', edit_professional_path(professional) %></td>
+    20:         <td><%= link_to 'Destroy', professional, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    21:       </tr>
+  
+app/views/professionals/index.html.erb:18
+app/views/professionals/index.html.erb:14
+Started GET "/" for 127.0.0.1 at 2021-12-08 19:48:41 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[36mProfessional Load (0.1ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1126)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 4155)
+Completed 200 OK in 13ms (Views: 11.1ms | ActiveRecord: 0.1ms | Allocations: 5262)
+
+
+Started GET "/" for 127.0.0.1 at 2021-12-08 19:50:38 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[36mProfessional Load (0.2ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1194)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 4215)
+Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 0.2ms | Allocations: 5317)
+
+
+Started GET "/professionals/1" for 127.0.0.1 at 2021-12-08 19:50:41 -0300
+Processing by ProfessionalsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProfessional Load (0.5ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/professionals_controller.rb:63:in `set_professional'
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/show.html.erb within layouts/application
+  Rendered professionals/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 246)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.9ms | Allocations: 3047)
+Completed 200 OK in 51ms (Views: 19.5ms | ActiveRecord: 0.5ms | Allocations: 6392)
+
+
+Started GET "/professionals" for 127.0.0.1 at 2021-12-08 19:50:42 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[36mProfessional Load (0.2ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 962)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 3812)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.2ms | Allocations: 4218)
+
+
+Started GET "/professionals" for 127.0.0.1 at 2021-12-08 20:01:37 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/professionals/index.html.erb:14
+  [1m[36mProfessional Load (0.1ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1899)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 4920)
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 0.5ms | Allocations: 6027)
+
+
+Started GET "/professionals/1" for 127.0.0.1 at 2021-12-08 20:01:39 -0300
+Processing by ProfessionalsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProfessional Load (0.2ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/professionals_controller.rb:63:in `set_professional'
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/show.html.erb within layouts/application
+  Rendered professionals/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 238)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 3089)
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 0.2ms | Allocations: 4160)
+
+
+Started GET "/professionals" for 127.0.0.1 at 2021-12-08 20:01:42 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[36mProfessional Load (0.2ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 6.9ms | Allocations: 954)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 3802)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.2ms | Allocations: 4197)
+
+
+Started GET "/professionals/1/appointments" for 127.0.0.1 at 2021-12-08 20:01:52 -0300
+Processing by AppointmentsController#index as HTML
+  Parameters: {"professional_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/views/appointments/index.html.erb:18
+  Rendered appointments/index.html.erb within layouts/application (Duration: 46.6ms | Allocations: 6585)
+  Rendered layout layouts/application.html.erb (Duration: 46.9ms | Allocations: 6649)
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 0.2ms | Allocations: 7505)
+
+
+  
+ActionView::Template::Error (undefined method `appointment_path' for #<ActionView::Base:0x0000000000bf40>):
+    22:         <td><%= appointment.surname %></td>
+    23:         <td><%= appointment.phone %></td>
+    24:         <td><%= appointment.notes %></td>
+    25:         <td><%= link_to 'Show', [@professional, appointment] %></td>
+    26:         <td><%= link_to 'Edit', edit_appointment_path(@professional, appointment) %></td>
+    27:         <td><%= link_to 'Destroy', [@professional, appointment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    28:       </tr>
+  
+app/views/appointments/index.html.erb:25
+app/views/appointments/index.html.erb:18
+Started PUT "/__web_console/repl_sessions/256df03e9fae18da1551eb28695c1582" for 127.0.0.1 at 2021-12-08 20:02:14 -0300
+Started PUT "/__web_console/repl_sessions/256df03e9fae18da1551eb28695c1582" for 127.0.0.1 at 2021-12-08 20:02:15 -0300
+Started PUT "/__web_console/repl_sessions/256df03e9fae18da1551eb28695c1582" for 127.0.0.1 at 2021-12-08 20:02:20 -0300
+Started GET "/professionals/1/appointments" for 127.0.0.1 at 2021-12-08 20:03:44 -0300
+Processing by AppointmentsController#index as HTML
+  Parameters: {"professional_id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/appointments_controller.rb:6:in `index'
+  [1m[36mProfessional Load (0.1ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/views/appointments/index.html.erb:18
+  Rendered appointments/index.html.erb within layouts/application (Duration: 21.5ms | Allocations: 8511)
+  Rendered layout layouts/application.html.erb (Duration: 21.8ms | Allocations: 8575)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 1.7ms | Allocations: 13467)
+
+
+  
+ActionView::Template::Error (undefined method `edit_appointment_path' for #<ActionView::Base:0x0000000000d728>
+Did you mean?  edit_professional_appointment_path):
+    23:         <td><%= appointment.phone %></td>
+    24:         <td><%= appointment.notes %></td>
+    25:         <td><%= link_to 'Show', [@professional, appointment] %></td>
+    26:         <td><%= link_to 'Edit', edit_appointment_path(@professional, appointment) %></td>
+    27:         <td><%= link_to 'Destroy', [@professional, appointment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    28:       </tr>
+    29:     <% end %>
+  
+app/views/appointments/index.html.erb:26
+app/views/appointments/index.html.erb:18
+Started PUT "/__web_console/repl_sessions/fe70fb6f20c0194fe3e9e1df64ae4f3f" for 127.0.0.1 at 2021-12-08 20:03:54 -0300
+Started PUT "/__web_console/repl_sessions/fe70fb6f20c0194fe3e9e1df64ae4f3f" for 127.0.0.1 at 2021-12-08 20:03:55 -0300
+Started GET "/professionals/1/appointments" for 127.0.0.1 at 2021-12-08 20:04:24 -0300
+Processing by AppointmentsController#index as HTML
+  Parameters: {"professional_id"=>"1"}
+  [1m[36mProfessional Load (0.3ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/views/appointments/index.html.erb:18
+  Rendered appointments/index.html.erb within layouts/application (Duration: 13.8ms | Allocations: 1190)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 29.7ms | Allocations: 4219)
+Completed 200 OK in 48ms (Views: 38.2ms | ActiveRecord: 0.7ms | Allocations: 5859)
+
+
+Started GET "/professionals/1/appointments" for 127.0.0.1 at 2021-12-08 20:06:19 -0300
+Processing by AppointmentsController#index as HTML
+  Parameters: {"professional_id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/appointments_controller.rb:63:in `set_professional'
+  [1m[36mProfessional Load (0.2ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:63:in `set_professional'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/views/appointments/index.html.erb:18
+  Rendered appointments/index.html.erb within layouts/application (Duration: 11.1ms | Allocations: 4779)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 7658)
+Completed 200 OK in 32ms (Views: 16.1ms | ActiveRecord: 2.2ms | Allocations: 12695)
+
+
+Started GET "/professionals/1/appointments/1" for 127.0.0.1 at 2021-12-08 20:06:31 -0300
+Processing by AppointmentsController#show as HTML
+  Parameters: {"professional_id"=>"1", "id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/appointments_controller.rb:63:in `set_professional'
+  [1m[36mProfessional Load (0.1ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:63:in `set_professional'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:68:in `set_appointment'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/show.html.erb within layouts/application
+  Rendered appointments/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 367)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 3218)
+Completed 200 OK in 28ms (Views: 6.5ms | ActiveRecord: 1.8ms | Allocations: 12628)
+
+
+Started GET "/professionals/1/appointments" for 127.0.0.1 at 2021-12-08 20:06:35 -0300
+Processing by AppointmentsController#index as HTML
+  Parameters: {"professional_id"=>"1"}
+  [1m[36mProfessional Load (0.1ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:63:in `set_professional'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/views/appointments/index.html.erb:18
+  Rendered appointments/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1027)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 3883)
+Completed 200 OK in 17ms (Views: 13.4ms | ActiveRecord: 0.4ms | Allocations: 4824)
+
+
+Started GET "/professionals/1/appointments/1/edit" for 127.0.0.1 at 2021-12-08 20:06:38 -0300
+Processing by AppointmentsController#edit as HTML
+  Parameters: {"professional_id"=>"1", "id"=>"1"}
+  [1m[36mProfessional Load (0.1ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:63:in `set_professional'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:68:in `set_appointment'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/edit.html.erb within layouts/application
+  Rendered appointments/_form.html.erb (Duration: 115.8ms | Allocations: 5119)
+  Rendered appointments/edit.html.erb within layouts/application (Duration: 119.0ms | Allocations: 5549)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 136.3ms | Allocations: 8398)
+Completed 200 OK in 144ms (Views: 137.7ms | ActiveRecord: 0.2ms | Allocations: 9986)
+
+
+Started GET "/professionals/1/appointments" for 127.0.0.1 at 2021-12-08 20:06:44 -0300
+Processing by AppointmentsController#index as HTML
+  Parameters: {"professional_id"=>"1"}
+  [1m[36mProfessional Load (0.3ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:63:in `set_professional'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/views/appointments/index.html.erb:18
+  Rendered appointments/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 904)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 3760)
+Completed 200 OK in 21ms (Views: 13.7ms | ActiveRecord: 0.6ms | Allocations: 4700)
+
+
+Started GET "/professionals/1/appointments/new" for 127.0.0.1 at 2021-12-08 20:06:45 -0300
+Processing by AppointmentsController#new as HTML
+  Parameters: {"professional_id"=>"1"}
+  [1m[36mProfessional Load (0.1ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:63:in `set_professional'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/new.html.erb within layouts/application
+  Rendered appointments/_form.html.erb (Duration: 16.8ms | Allocations: 4761)
+  Rendered appointments/new.html.erb within layouts/application (Duration: 18.9ms | Allocations: 5051)
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 5115)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.1ms | Allocations: 6162)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `professional' for #<ActionView::Base:0x00000000010478>
+Did you mean?  @professional):
+    1: <%= form_with(model: [professional, appointment]) do |form| %>
+    2:   <% if appointment.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+  
+app/views/appointments/_form.html.erb:1
+app/views/appointments/new.html.erb:3
+Started GET "/professionals/1/appointments" for 127.0.0.1 at 2021-12-08 20:06:55 -0300
+Processing by AppointmentsController#index as HTML
+  Parameters: {"professional_id"=>"1"}
+  [1m[36mProfessional Load (0.1ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:63:in `set_professional'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/views/appointments/index.html.erb:18
+  Rendered appointments/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 913)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 3772)
+Completed 200 OK in 15ms (Views: 12.4ms | ActiveRecord: 0.3ms | Allocations: 4708)
+
+
+Started GET "/professionals/1/appointments" for 127.0.0.1 at 2021-12-08 20:08:32 -0300
+Processing by AppointmentsController#index as HTML
+  Parameters: {"professional_id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/appointments_controller.rb:63:in `set_professional'
+  [1m[36mProfessional Load (0.1ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:63:in `set_professional'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."professional_id" = ?[0m  [["professional_id", 1]]
+  ↳ app/views/appointments/index.html.erb:18
+  Rendered appointments/index.html.erb within layouts/application (Duration: 105.9ms | Allocations: 6307)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 117.9ms | Allocations: 9061)
+Completed 200 OK in 204ms (Views: 115.9ms | ActiveRecord: 4.7ms | Allocations: 16718)
+
+
+Started GET "/" for 127.0.0.1 at 2021-12-08 20:10:44 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[36mProfessional Load (0.2ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1204)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 4187)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.2ms | Allocations: 5351)
+
+
+Started GET "/professionals/1/appointments" for 127.0.0.1 at 2021-12-08 20:10:47 -0300
+Processing by AppointmentsController#index as HTML
+  Parameters: {"professional_id"=>"1"}
+  [1m[36mProfessional Load (0.2ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:63:in `set_professional'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."professional_id" = ?[0m  [["professional_id", 1]]
+  ↳ app/views/appointments/index.html.erb:18
+  Rendered appointments/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1288)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 4139)
+Completed 200 OK in 17ms (Views: 11.3ms | ActiveRecord: 0.4ms | Allocations: 5587)
+
+
+Started GET "/professionals/2/appointments" for 127.0.0.1 at 2021-12-08 20:10:54 -0300
+Processing by AppointmentsController#index as HTML
+  Parameters: {"professional_id"=>"2"}
+  [1m[36mProfessional Load (0.5ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:63:in `set_professional'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."professional_id" = ?[0m  [["professional_id", 2]]
+  ↳ app/views/appointments/index.html.erb:18
+  Rendered appointments/index.html.erb within layouts/application (Duration: 6.5ms | Allocations: 798)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 3654)
+Completed 200 OK in 23ms (Views: 15.6ms | ActiveRecord: 0.8ms | Allocations: 4611)
+
+
+Started GET "/professionals/1/appointments" for 127.0.0.1 at 2021-12-08 20:10:57 -0300
+Processing by AppointmentsController#index as HTML
+  Parameters: {"professional_id"=>"1"}
+  [1m[36mProfessional Load (0.1ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:63:in `set_professional'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."professional_id" = ?[0m  [["professional_id", 1]]
+  ↳ app/views/appointments/index.html.erb:18
+  Rendered appointments/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1002)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 3872)
+Completed 200 OK in 13ms (Views: 9.6ms | ActiveRecord: 0.2ms | Allocations: 4827)
+
+
+Started GET "/" for 127.0.0.1 at 2021-12-08 20:15:06 -0300
+Processing by ProfessionalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering professionals/index.html.erb within layouts/application
+  [1m[36mProfessional Load (0.1ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals"[0m
+  ↳ app/views/professionals/index.html.erb:14
+  Rendered professionals/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 951)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 3802)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.1ms | Allocations: 4195)
+
+
+Started GET "/professionals/1/appointments" for 127.0.0.1 at 2021-12-08 20:15:11 -0300
+Processing by AppointmentsController#index as HTML
+  Parameters: {"professional_id"=>"1"}
+  [1m[36mProfessional Load (0.1ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:63:in `set_professional'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."professional_id" = ?[0m  [["professional_id", 1]]
+  ↳ app/views/appointments/index.html.erb:18
+  Rendered appointments/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1002)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 3850)
+Completed 200 OK in 12ms (Views: 9.0ms | ActiveRecord: 0.2ms | Allocations: 4805)
+
+
+Started GET "/professionals/1/appointments/new" for 127.0.0.1 at 2021-12-08 20:15:12 -0300
+Processing by AppointmentsController#new as HTML
+  Parameters: {"professional_id"=>"1"}
+  [1m[36mProfessional Load (0.1ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:63:in `set_professional'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/new.html.erb within layouts/application
+  Rendered appointments/_form.html.erb (Duration: 14.4ms | Allocations: 4753)
+  Rendered appointments/new.html.erb within layouts/application (Duration: 15.9ms | Allocations: 5081)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 5145)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.1ms | Allocations: 6184)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `professional' for #<ActionView::Base:0x00000000012020>
+Did you mean?  @professional):
+    1: <%= form_with(model: [professional, appointment]) do |form| %>
+    2:   <% if appointment.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+  
+app/views/appointments/_form.html.erb:1
+app/views/appointments/new.html.erb:3
+Started GET "/professionals/1/appointments" for 127.0.0.1 at 2021-12-08 20:15:15 -0300
+Processing by AppointmentsController#index as HTML
+  Parameters: {"professional_id"=>"1"}
+  [1m[36mProfessional Load (0.1ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:63:in `set_professional'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."professional_id" = ?[0m  [["professional_id", 1]]
+  ↳ app/views/appointments/index.html.erb:18
+  Rendered appointments/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1014)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 3873)
+Completed 200 OK in 14ms (Views: 11.4ms | ActiveRecord: 0.3ms | Allocations: 4825)
+
+
+Started GET "/professionals/1/appointments/1" for 127.0.0.1 at 2021-12-08 20:15:17 -0300
+Processing by AppointmentsController#show as HTML
+  Parameters: {"professional_id"=>"1", "id"=>"1"}
+  [1m[36mProfessional Load (0.4ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:63:in `set_professional'
+  [1m[36mAppointment Load (1.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:68:in `set_appointment'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/show.html.erb within layouts/application
+  Rendered appointments/show.html.erb within layouts/application (Duration: 3.6ms | Allocations: 353)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 3204)
+Completed 200 OK in 38ms (Views: 18.0ms | ActiveRecord: 1.4ms | Allocations: 4911)
+
+
+Started GET "/professionals/1/appointments" for 127.0.0.1 at 2021-12-08 20:15:18 -0300
+Processing by AppointmentsController#index as HTML
+  Parameters: {"professional_id"=>"1"}
+  [1m[36mProfessional Load (0.4ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:63:in `set_professional'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."professional_id" = ?[0m  [["professional_id", 1]]
+  ↳ app/views/appointments/index.html.erb:18
+  Rendered appointments/index.html.erb within layouts/application (Duration: 8.5ms | Allocations: 1007)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 3855)
+Completed 200 OK in 42ms (Views: 23.8ms | ActiveRecord: 0.6ms | Allocations: 4811)
+
+
+Started GET "/professionals/1/appointments/1/edit" for 127.0.0.1 at 2021-12-08 20:15:19 -0300
+Processing by AppointmentsController#edit as HTML
+  Parameters: {"professional_id"=>"1", "id"=>"1"}
+  [1m[36mProfessional Load (0.5ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:63:in `set_professional'
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:68:in `set_appointment'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/edit.html.erb within layouts/application
+  Rendered appointments/_form.html.erb (Duration: 20.9ms | Allocations: 3261)
+  Rendered appointments/edit.html.erb within layouts/application (Duration: 25.9ms | Allocations: 3650)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 44.3ms | Allocations: 6498)
+Completed 200 OK in 65ms (Views: 46.7ms | ActiveRecord: 0.8ms | Allocations: 8086)
+
+
+Started GET "/professionals/1/appointments" for 127.0.0.1 at 2021-12-08 20:15:21 -0300
+Processing by AppointmentsController#index as HTML
+  Parameters: {"professional_id"=>"1"}
+  [1m[36mProfessional Load (0.3ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:63:in `set_professional'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."professional_id" = ?[0m  [["professional_id", 1]]
+  ↳ app/views/appointments/index.html.erb:18
+  Rendered appointments/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1004)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 3852)
+Completed 200 OK in 17ms (Views: 12.7ms | ActiveRecord: 0.4ms | Allocations: 4808)
+
+
+Started GET "/professionals/1/appointments/1/edit" for 127.0.0.1 at 2021-12-08 20:15:40 -0300
+Processing by AppointmentsController#edit as HTML
+  Parameters: {"professional_id"=>"1", "id"=>"1"}
+  [1m[36mProfessional Load (0.9ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:63:in `set_professional'
+  [1m[36mAppointment Load (0.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:68:in `set_appointment'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/edit.html.erb within layouts/application
+  Rendered appointments/_form.html.erb (Duration: 11.7ms | Allocations: 2853)
+  Rendered appointments/edit.html.erb within layouts/application (Duration: 13.2ms | Allocations: 3025)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.9ms | Allocations: 5880)
+Completed 200 OK in 38ms (Views: 22.5ms | ActiveRecord: 1.1ms | Allocations: 7343)
+
+
+Started PATCH "/professionals/1/appointments/1" for 127.0.0.1 at 2021-12-08 20:15:45 -0300
+Processing by AppointmentsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "appointment"=>{"date(1i)"=>"2021", "date(2i)"=>"12", "date(3i)"=>"10", "date(4i)"=>"15", "date(5i)"=>"25", "name"=>"Francisco", "surname"=>"Cerati", "phone"=>"22442244", "notes"=>""}, "commit"=>"Update Appointment", "professional_id"=>"1", "id"=>"1"}
+  [1m[36mProfessional Load (0.4ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:63:in `set_professional'
+  [1m[36mAppointment Load (0.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:68:in `set_appointment'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/appointments_controller.rb:41:in `block in update'
+  [1m[36mProfessional Load (0.2ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:41:in `block in update'
+  [1m[36mAppointment Update (0.7ms)[0m  [1m[33mUPDATE "appointments" SET "date" = ?, "notes" = ?, "updated_at" = ? WHERE "appointments"."id" = ?[0m  [["date", "2021-12-10 15:25:00"], ["notes", ""], ["updated_at", "2021-12-08 23:15:45.673676"], ["id", 1]]
+  ↳ app/controllers/appointments_controller.rb:41:in `block in update'
+  [1m[36mTRANSACTION (173.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/appointments_controller.rb:41:in `block in update'
+Redirected to 
+Completed 500 Internal Server Error in 254ms (ActiveRecord: 175.4ms | Allocations: 9542)
+
+
+  
+NoMethodError (undefined method `appointment_url' for #<AppointmentsController:0x00000000012660>):
+  
+app/controllers/appointments_controller.rb:42:in `block (2 levels) in update'
+app/controllers/appointments_controller.rb:40:in `update'
+Started GET "/professionals/1/appointments/1/edit" for 127.0.0.1 at 2021-12-08 20:16:17 -0300
+Processing by AppointmentsController#edit as HTML
+  Parameters: {"professional_id"=>"1", "id"=>"1"}
+  [1m[36mProfessional Load (0.1ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:63:in `set_professional'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:68:in `set_appointment'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/edit.html.erb within layouts/application
+  Rendered appointments/_form.html.erb (Duration: 5.1ms | Allocations: 2847)
+  Rendered appointments/edit.html.erb within layouts/application (Duration: 6.0ms | Allocations: 3019)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 5874)
+Completed 200 OK in 16ms (Views: 11.5ms | ActiveRecord: 0.2ms | Allocations: 7333)
+
+
+Started GET "/professionals/1/appointments" for 127.0.0.1 at 2021-12-08 20:16:19 -0300
+Processing by AppointmentsController#index as HTML
+  Parameters: {"professional_id"=>"1"}
+  [1m[36mProfessional Load (0.1ms)[0m  [1m[34mSELECT "professionals".* FROM "professionals" WHERE "professionals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:63:in `set_professional'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."professional_id" = ?[0m  [["professional_id", 1]]
+  ↳ app/views/appointments/index.html.erb:18
+  Rendered appointments/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1000)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 3848)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.3ms | Allocations: 4803)
+
+
