@@ -1,6 +1,7 @@
 class ProfessionalsController < ApplicationController
   #before_action :check_authentication  #agregado solamente para recordar de agregar autenteicacion usar la gema device
   before_action :set_professional, only: %i[ show edit update destroy ]
+  # add_flash_types :info, :error, :warning por si se quiere agregar mensaje 
 
   # GET /professionals or /professionals.json
   def index
@@ -50,10 +51,17 @@ class ProfessionalsController < ApplicationController
 
   # DELETE /professionals/1 or /professionals/1.json
   def destroy
-    @professional.destroy
-    respond_to do |format|
-      format.html { redirect_to professionals_url, notice: "Professional was successfully destroyed." }
-      format.json { head :no_content }
+    begin
+      @professional.destroy
+      respond_to do |format|
+        format.html { redirect_to professionals_url, notice: "Professional was successfully destroyed." }
+        format.json { head :no_content }
+      end
+    rescue => e
+      respond_to do |format|
+        format.html { redirect_to professionals_url, notice: "#{e.message}" }
+        format.json { head :no_content }
+      end
     end
   end
 

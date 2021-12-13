@@ -4,4 +4,9 @@ class Professional < ApplicationRecord
     has_many :appointments
 
     validates :name, presence: true, uniqueness: true 
+
+    def destroy
+        raise "Cannot delete professional with appointments" unless appointments.count == 0
+        super
+    end
 end
