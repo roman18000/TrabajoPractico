@@ -7,3 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Aca cargo datos para prueba en la bd
+
+#User.create(email: 'admin@gmail.com', password: '123456')
