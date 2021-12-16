@@ -7,5 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Aca cargo datos para prueba en la bd
+#rails db:seed 
 
 #User.create(email: 'admin@gmail.com', password: '123456')
+
+#User.create(email: 'juan@gmail.com', password: '123456')
+#cargar datos 

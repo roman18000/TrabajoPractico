@@ -17,7 +17,7 @@
   <tbody>
     <% @appointments.each do |appointment| %>
       <tr>
-        <td><%= appointment.date %></td>
+        <td><%= appointment.date.strftime("%Y/%m/%d - %H:00") %></td>
         <td><%= appointment.name %></td>
         <td><%= appointment.surname %></td>
         <td><%= appointment.phone %></td>
