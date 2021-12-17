@@ -13,3 +13,16 @@
 
 #User.create(email: 'juan@gmail.com', password: '123456')
 #cargar datos 
+
+
+#Creacion de Usuarios y asignacion de roles --------------->
+User.create(email: 'lector@mail.com', password: '123456')
+
+as = User.create(email: 'asistente@mail.com', password: '123456')
+as.assistant!
+
+a = User.create(email: 'admin@mail.com', password: '123456')
+a.admin!
+
+#Creacion de Profesionales ------------------>
+
