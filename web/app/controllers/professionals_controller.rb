@@ -1,11 +1,11 @@
 class ProfessionalsController < ApplicationController
-  #before_action :check_authentication  #agregado solamente para recordar de agregar autenteicacion usar la gema device
-  before_action :set_professional, only: %i[ show edit update destroy ]
+  load_and_authorize_resource
+  # before_action :set_professional, only: %i[ show edit update destroy ]
   # add_flash_types :info, :error, :warning por si se quiere agregar mensaje 
 
   # GET /professionals or /professionals.json
   def index
-    @professionals = Professional.all
+    #@professionals = Professional.all
   end
 
   # GET /professionals/1 or /professionals/1.json
@@ -67,9 +67,9 @@ class ProfessionalsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_professional
-      @professional = Professional.find(params[:id])
-    end
+    # def set_professional
+    #   @professional = Professional.find(params[:id])
+    # end 
 
     # Only allow a list of trusted parameters through.
     def professional_params
