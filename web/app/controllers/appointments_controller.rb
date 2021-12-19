@@ -7,7 +7,7 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments or /appointments.json
   def index
-    @appointments = @professional.appointments
+    @appointments = @professional.appointments.sort_by &:date
   end
 
   # GET /appointments/1 or /appointments/1.json

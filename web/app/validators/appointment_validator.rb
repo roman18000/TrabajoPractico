@@ -1,7 +1,14 @@
 class AppointmentValidator < ActiveModel::Validator
   def validate(record)
-    validate_date_higher_today(record)  #valida que la fecha sea mayor a hoy
-    validate_date_not_repeat_for_professional(record)
+    begin
+      a = Appointment.find(record.id)
+      if a.date != record.date 
+        validate_date_not_repeat_for_professional(record)
+      end
+    rescue ActiveRecord::RecordNotFound    #Esta creando uno nuevo por que no encontro el id
+      validate_date_higher_today(record)  
+      validate_date_not_repeat_for_professional(record)
+    end 
   end 
 
   def validate_date_higher_today(record)
