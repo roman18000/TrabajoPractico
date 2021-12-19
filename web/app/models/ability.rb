@@ -32,6 +32,7 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
 
     can :read, :all
+    can [:export_appointments, :download_appointments], Professional
 
     if user.assistant?
       can :manage, Appointment

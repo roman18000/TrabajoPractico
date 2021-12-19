@@ -1,3 +1,4 @@
+<h1>Export appointments</h1>
 <%= form_with url: download_appointments_professionals_path, method: :post do |form| %>
   <div class="field">
     <%= form.label :week, "All week" %>
@@ -14,8 +15,6 @@
     <%= form.collection_select :professionals, @professionals, :id, :name, :include_blank => "All" %>
   </div>
 
-  
-  
-
   <%= form.submit "Download" %>
+  <%= link_to 'Back', professionals_path %>
 <% end %>
