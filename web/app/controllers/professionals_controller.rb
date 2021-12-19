@@ -1,5 +1,6 @@
 class ProfessionalsController < ApplicationController
   load_and_authorize_resource
+  require_relative '../export/export_file.rb'
   # before_action :set_professional, only: %i[ show edit update destroy ]
   # add_flash_types :info, :error, :warning por si se quiere agregar mensaje 
 
@@ -65,11 +66,29 @@ class ProfessionalsController < ApplicationController
     end
   end
 
+  def export_appointments
+  end
+  
+  # en params[:professionals] esta el id del profesional y si no tiene nada es que son todos
+  def download_appointments
+    p = []
+    if params[:professionals].empty?
+      @professionals.each do |pro|
+        p << pro
+      end
+    else
+      p << Professional.find(params[:professionals])
+    end
+    send_data ExportFile.export_list(params, p), filename: "appointments_list.pdf", type: "application/pdf"
+  end 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     # def set_professional
     #   @professional = Professional.find(params[:id])
     # end 
+
+
 
     # Only allow a list of trusted parameters through.
     def professional_params

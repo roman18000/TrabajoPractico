@@ -10,4 +10,12 @@ class Appointment < ApplicationRecord
   #despues en una consola por ejemplo cuando intento instanciar un objeto me da error y si miro
   #los errores con instancia.errors.full_messages salta el error
 
+  def hour
+    "#{self.date.hour}:00"
+  end
+
+  def to_s
+    "Apellido: #{self.surname} Nombre: #{self.name} Telefono: #{self.phone} Notas: #{self.notes} Profesional: #{self.professional.name}"
+  end
+
 end
