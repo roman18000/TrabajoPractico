@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Professionals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @professionals.each do |professional| %>
+      <tr>
+        <td><%= professional.name %></td>
+        <td><%= link_to 'Show', professional %></td>
+        <td><%= link_to 'Appointments', professional_appointments_path(professional) %></td>
+        <% if can? :update, Professional %>
+          <td><%= link_to 'Edit', edit_professional_path(professional) %></td>
+        <% end %>
+        <% if can? :destroy, Professional %>
+          <td><%= link_to 'Destroy', professional, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if can? :create, Professional %>
+  <%= link_to 'New Professional', new_professional_path %>
+<% end %>
+<%= link_to 'Export appointments', export_appointments_professionals_path %>

@@ -175,7 +175,7 @@ module Polycon
                         days = date - date.wday # se reinicia en domingo
                         for d in 1..7 do
                             dateFormat = "#{days.year}-#{days.month}-#{days.day}"
-                            hash["#{h}"] << list_appointments_for_day_with_professional_and_hour(dateFormat, professionals, h) #retorna una lista de los turnos para ese dia, para ese profecional en esa hora
+                            hash["#{h}"] << list_appointments_for_day_with_professional_and_hour(dateFormat, professionals, h) #retorna una lista de los turnos para ese dia, para ese profesional en esa hora
                             days = days + 1
                         end
                     end
