@@ -1,4 +1,3 @@
-
 Decisiones de diseño:  
 La estructura ya dada por la cátedra fue modificada sutilmente, la parte del modelo está incluida en una carpeta llamada “models”, dentro de la carpeta lib. A su vez existe el módulo “Models” el cual tiene un archivo para cargar los autoloads.
 Dentro de la carpeta models se decidió implementar todos lo referido al modelo. Las clases implementadas son “professionals y appoinments” que ambas comparten un estructura similar, para la funcionalidades pedidas(create, delete, list, etc) utilizan métodos de clase los cuales ,instancian, buscan o borran según sea necesario.
@@ -8,7 +7,6 @@ Para la exportación se creó en la carpeta llamada helpers 'exports.rb' donde u
 Esta exportación de .pdf se guardará en la carpeta personal del usuario con el nombre de 'polycon_files'.
 Se exporta un grilla con los horarios de 8 de la mañana a 17 de la tarde, por un tema de facilidad de lectura del pdf, no es una restricción.
 Cómo resguardado de datos se utiliza el disco donde se corre el programa, en una carpeta que se genera en el primer agregado de un profesional llamada 'polycon', ubicada en la carpeta personal del usuario.
- 
 
 Rails:
 La creación de rails se realizó en la carpeta web, a partir de ahí se trató de seguir todas las convenciones indicadas por rails para crear la parte web del proyecto. Se crearon las clases, controladores y vistas de appointments y professionals, todo mediante el generate que ofrece rails.
